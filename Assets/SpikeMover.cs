@@ -11,12 +11,4 @@ public class SpikeMover : MonoBehaviour
     {
         transform.RotateAround(rotationPoint, Vector3.forward, Time.deltaTime * rotationSpeed);
     }
-
-    public void TransformSpike()
-    {
-        if (transform.localScale.x > .5f)
-        {
-            transform.localScale = new Vector3(.75f,.75f,.75f);
-        }
-    }
 }
