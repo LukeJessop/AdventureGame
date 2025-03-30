@@ -169,6 +169,13 @@ MonoBehaviour:
   jumpForce: 3
   gravity: -9.81
   jumpCounter: 0
+  decreaseStamina:
+    m_PersistentCalls:
+      m_Calls: []
+  increaseStamina:
+    m_PersistentCalls:
+      m_Calls: []
+  staminaData: {fileID: 0}
 --- !u!1 &7419993652164298406
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,8 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d20d374e69da4f438bec0e09ae8e02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key1: 275
-  key2: 276
   direction1: 0
   direction2: 180
 --- !u!212 &4893338370205777294
