@@ -8,6 +8,13 @@ public class HealthContainer : MonoBehaviour
 
     public void ReduceHealth(float amount)
     {
-        healthData.UpdateValue(amount);
+        if ((healthData.value - amount) <= 0)
+        {
+            healthData.UpdateValue(0);
+        }
+        else
+        {
+            healthData.UpdateValue(amount);
+        }
     }
 }
