@@ -9,8 +9,6 @@ public class SimpleIntData : MonoBehaviour
 
     public void UpdateValue(int amount)
     {
-        Debug.Log(value);
-        Debug.Log(amount);
         value += amount;
     }
 
