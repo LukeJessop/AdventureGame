@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpikeMover : MonoBehaviour
 {
     // Update is called once per frame
-    public Vector3 rotationPoint;
+    public GameObject rotateAroundObject;
     public float rotationSpeed;
     void Update()
     {
-        transform.RotateAround(rotationPoint, Vector3.forward, Time.deltaTime * rotationSpeed);
+        transform.RotateAround(rotateAroundObject.transform.position, Vector3.forward, Time.deltaTime * rotationSpeed);
     }
 }
