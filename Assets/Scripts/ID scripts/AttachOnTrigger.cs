@@ -6,16 +6,24 @@ using UnityEngine;
 public class AttachOnTrigger : MonoBehaviour
 {
     public Id idToAttach;
+    private int counter = 1;
     public void OnTriggerEnter(Collider other)
     {
         transform.parent = other.transform;
-        other.AddComponent<SimpleIdBehavior>();
-        var idComponent = other.GetComponent<SimpleIdBehavior>();
-        idComponent.id = idToAttach;
+        if (counter == 1)
+        {
+            other.AddComponent<SimpleIdBehavior>();
+            var idComponent = other.GetComponent<SimpleIdBehavior>();
+            idComponent.id = idToAttach;
+            counter--;
+        }
     }
 
-    public void OnTriggerExit(Collider other)
+    public void Detatch(Collider other)
     {
         transform.parent = null;
+        var idComponent = other.GetComponent<SimpleIdBehavior>();
+        Destroy(idComponent);
+        counter++;
     }
 }

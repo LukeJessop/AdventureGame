@@ -16,12 +16,10 @@ public class SimpleIDMatchBehavior : MonoBehaviour
         if (otherID.id == id)
         {
             matchEvent.Invoke();
-            Debug.Log("matched! " + id);
         }
         else
         {
             noMatchEvent.Invoke();
-            Debug.Log("no match! " + id);
         }
     }
 }
