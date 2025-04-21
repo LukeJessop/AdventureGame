@@ -11,11 +11,18 @@ public class SimpleIDMatchBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var otherID = other.GetComponent<SimpleIdBehavior>();
-
-        if (otherID.id == id)
+        if (other.GetComponent<SimpleIdBehavior>())
         {
-            matchEvent.Invoke();
+            var otherID = other.GetComponent<SimpleIdBehavior>();
+
+            if (otherID.id == id)
+            {
+                matchEvent.Invoke();
+            }
+            else
+            {
+                noMatchEvent.Invoke();
+            }
         }
         else
         {

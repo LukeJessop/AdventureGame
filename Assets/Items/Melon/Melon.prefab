@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.545, y: 0.804, z: 0}
-  m_LocalScale: {x: 77.04978, y: 77.04978, z: 77.04978}
+  m_LocalScale: {x: 34.8265, y: 34.8265, z: 34.8265}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -207,10 +207,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ac6034ade498bb94b87620cdf6eac48b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d955fba00894b2d4c9bdb0fa99bef1b0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.13
-  m_Pitch: 2.52
+  m_Volume: 0.588
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -317,7 +317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc859c7b585b8441ba0e6195b6489ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleAmount: 10
+  firstEmissionAmount: 10
+  secondEmissionAmount: 20
+  thirdEmissionAmount: 30
+  delayBetweenEmissions: 0.5
 --- !u!198 &8700187163224287780
 ParticleSystem:
   m_ObjectHideFlags: 0
