@@ -6,20 +6,44 @@ using UnityEngine.AI;
 
 public class SimpleNavMeshAgent : MonoBehaviour
 {
-    public Transform target;
+    
+    public Transform[] waypoints;
+    private int currentWaypointIndex;
     private NavMeshAgent agent;
+    public SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
+        if (waypoints.Length > 0)
+        {
+            agent.SetDestination(waypoints[0].position);
+        }
     }
 
     private void Update()
     {
-        if (target != null)
+        if (agent.velocity.x > 0)
         {
-            agent.SetDestination(target.position);
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (currentWaypointIndex < waypoints.Length - 1)
+            {
+                currentWaypointIndex++;
+                agent.SetDestination(waypoints[currentWaypointIndex].position);
+            }
+            else
+            {
+                currentWaypointIndex = 0;
+                agent.SetDestination(waypoints[currentWaypointIndex].position);
+            }
         }
     }
 }

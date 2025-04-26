@@ -65,12 +65,10 @@ public class SimpleCharacterController : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         var controllerPosition = hit.controller.transform.position;
-        Debug.Log("Controller: " + controllerPosition.y + " Point: " + hit.point.y);
 
 
         if (hit.point.y < controllerPosition.y && (hit.moveDirection.y < 0f))
         {
-            Debug.Log("standing on something");
             playerIsGrounded = true;
             velocity.y = 0f;
             
