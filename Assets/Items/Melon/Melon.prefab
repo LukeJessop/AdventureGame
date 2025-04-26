@@ -151,7 +151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
+        m_MethodName: 
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SimpleIntData, Assembly-CSharp
-        m_MethodName: UpdateValue
+        m_MethodName: 
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -511,7 +511,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7348262, g: 1, b: 0.495283, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5065,7 +5065,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c0cee54426044fa4c8a68e0268a7d14c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

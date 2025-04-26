@@ -21,11 +21,20 @@ public class SimpleCharacterController : MonoBehaviour
     private Vector3 velocity;
     private Transform thisTransform;
     private Boolean playerIsGrounded;
+    private ParticleSystem staminaParticles;
+    private ParticleSystem.ShapeModule staminaShape;
+    private ParticleSystem.EmissionModule staminaEmission;
+    private ParticleSystem.MainModule staminaMain;
 
     void Start()
     {
+        staminaParticles = GetComponent<ParticleSystem>();
         controller = GetComponent<CharacterController>();
         thisTransform = transform;
+        staminaShape = staminaParticles.shape;
+        staminaEmission = staminaParticles.emission;
+        staminaMain = staminaParticles.main;
+        staminaParticles.Play();
     }
 
     // Update is called once per frame
@@ -48,7 +57,7 @@ public class SimpleCharacterController : MonoBehaviour
             playerIsGrounded = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && staminaData.value > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && staminaData.value > 0 && playerIsGrounded)
         {
             controller.Move(sprint);
             decreaseStamina.Invoke();
@@ -60,6 +69,33 @@ public class SimpleCharacterController : MonoBehaviour
             {
                 increaseStamina.Invoke();
             }
+        }
+        if (playerIsGrounded)
+        {
+            
+            if (controller.velocity.x < 0)
+            {
+                staminaEmission.rateOverTime= (controller.velocity.x * -1)/4;
+            }
+            else
+            {
+                staminaEmission.rateOverTime = controller.velocity.x/4;
+            }
+            if (controller.velocity.x < 0)
+            {
+                
+                staminaShape.rotation = new Vector3(0f, 0f, 0f);
+                staminaMain.startRotationY = 70f;
+            }
+            else
+            {
+                staminaShape.rotation = new Vector3(0f, 180f, 0f);
+                staminaMain.startRotationY = 270f;
+            }
+        }
+        else
+        {
+            staminaEmission.rateOverTime = 0f;
         }
     }
 
