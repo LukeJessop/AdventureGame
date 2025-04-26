@@ -11,6 +11,7 @@ public class SimpleCharacterController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 3f;
     public float gravity = -9.81f;
+    public float sprintMultiplier = 1.5f;
     public int jumpCounter = 0;
     public UnityEvent decreaseStamina;
     public UnityEvent increaseStamina;
@@ -39,7 +40,7 @@ public class SimpleCharacterController : MonoBehaviour
     {
         var moveInput = Input.GetAxis("Horizontal");
         var move = new Vector3(moveInput, 0f, 0f) * (moveSpeed * Time.deltaTime);
-        var sprint = new Vector3(moveInput, 0f, 0f) * ((moveSpeed * 2) * Time.deltaTime);
+        var sprint = new Vector3(moveInput, 0f, 0f) * ((moveSpeed * sprintMultiplier) * Time.deltaTime);
         
         if (Input.GetButtonDown("Jump") && playerIsGrounded)
         { 
