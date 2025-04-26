@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,10 +15,12 @@ public class SimpleCharacterController : MonoBehaviour
     public UnityEvent decreaseStamina;
     public UnityEvent increaseStamina;
     public SimpleFloatData staminaData;
-    
+
     private CharacterController controller;
     private Vector3 velocity;
     private Transform thisTransform;
+    private Boolean playerIsGrounded;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -37,10 +40,11 @@ public class SimpleCharacterController : MonoBehaviour
         var moveInput = Input.GetAxis("Horizontal");
         var move = new Vector3(moveInput, 0f, 0f) * (moveSpeed * Time.deltaTime);
         var sprint = new Vector3(moveInput, 0f, 0f) * ((moveSpeed * 2) * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
-        {
+        
+        if (Input.GetButtonDown("Jump") && playerIsGrounded)
+        { 
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            playerIsGrounded = false;
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && staminaData.value > 0)
@@ -55,22 +59,35 @@ public class SimpleCharacterController : MonoBehaviour
             {
                 increaseStamina.Invoke();
             }
-
         }
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        var controllerPosition = hit.controller.transform.position;
+        Debug.Log("Controller: " + controllerPosition.y + " Point: " + hit.point.y);
+
+
+        if (hit.point.y < controllerPosition.y && (hit.moveDirection.y < 0f))
+        {
+            Debug.Log("standing on something");
+            playerIsGrounded = true;
+            velocity.y = 0f;
+            
+        }
+
+        if (hit.point.y > controllerPosition.y && (hit.moveDirection.y > 0f))
+        {
+            velocity.y -= velocity.y;
+        }
+        
     }
 
     private void ApplyGravity()
     {
-        if (!controller.isGrounded)
-        {
-            velocity.y += gravity * Time.deltaTime;
-        }
-        else
-        {
-            velocity.y = -0.5f; 
-        }
-
+        velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
     }
 
     private void KeepCharacterOnXAxis()

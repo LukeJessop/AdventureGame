@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5367955741498403303}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.85}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10.8}
   m_LocalScale: {x: 2.9411764, y: 2.9411764, z: 2.9411764}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -65,10 +65,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 75.05
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -120,7 +120,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.34, y: 0.34, z: 0.34}
+  m_LocalScale: {x: 11.84101, y: 11.84101, z: 11.84101}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3048569760349376249}
@@ -146,13 +146,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0
-  m_Radius: 0.18
+  m_Height: 0.82
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -0.09, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6383684605041804711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e25dca43e023345b0813ffafbbd399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  jumpForce: 0.5
-  gravity: -9.81
+  moveSpeed: 60
+  jumpForce: 50
+  gravity: -500
   jumpCounter: 0
   decreaseStamina:
     m_PersistentCalls:
@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 7419993652164298406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.11, z: 0}
   m_LocalScale: {x: 2.9411764, y: 2.9411764, z: 2.9411764}
   m_ConstrainProportionsScale: 0
   m_Children: []
