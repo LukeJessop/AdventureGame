@@ -5,6 +5,7 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class SimpleCharacterController : MonoBehaviour
 {
@@ -42,9 +43,10 @@ public class SimpleCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveCharacter();
-        ApplyGravity();
-        KeepCharacterOnXAxis();
+        MoveCharacter(); //movement management
+        ApplyGravity(); //gravity
+        KeepCharacterOnXAxis(); //keeps character on x axis
+        CloseGame(); //closes the game on escape
     }
 
     private void MoveCharacter()
@@ -139,5 +141,13 @@ public class SimpleCharacterController : MonoBehaviour
     public void PowerupActive(float powerupValue)
     {
         sprintMultiplier += powerupValue;
+    }
+
+    public void CloseGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
