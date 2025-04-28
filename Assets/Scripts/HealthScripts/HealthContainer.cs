@@ -1,10 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthContainer : MonoBehaviour
 {
     public SimpleFloatData healthData;
+    public GameObject player;
+
+    public void Start()
+    {
+        healthData.value = 1f;
+    }
 
     public void ReduceHealth(float amount)
     {
@@ -15,6 +23,12 @@ public class HealthContainer : MonoBehaviour
         else
         {
             healthData.UpdateValue(amount);
+        }
+
+        if (healthData.value <= 0)
+        {
+            
+            SceneManager.LoadScene(0);
         }
     }
 }
