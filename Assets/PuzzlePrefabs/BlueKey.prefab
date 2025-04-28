@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6445653885722592685}
   - component: {fileID: 5085095973696972836}
   - component: {fileID: 1693858895068716965}
-  - component: {fileID: 7149158004795029357}
   m_Layer: 0
   m_Name: BlueKey
   m_TagString: Untagged
@@ -31,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -16.8, y: 61.16033, z: 0}
-  m_LocalScale: {x: 138.0291, y: 138.0291, z: 659.5032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,8 +97,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7203001037595464775, guid: 14048ba4b41a50449a2a86a01088f5e2, type: 3}
-  m_Color: {r: 0.4575472, g: 0.53204095, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9c06c82cac5ea3a40a6a2f460bad7b52, type: 3}
+  m_Color: {r: 1, g: 0.051016945, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,24 +134,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idToAttach: {fileID: 11400000, guid: 15940f4e7e6a2cf4eb9688e8af893d27, type: 2}
---- !u!65 &7149158004795029357
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6034981573666995212}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.04, y: 0.02, z: 0.20000003}
-  m_Center: {x: 0, y: 0, z: 0}

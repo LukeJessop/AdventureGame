@@ -6,14 +6,14 @@ public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
     public AudioClip[] clips;
-    private AudioSource audio;
+    private AudioSource sounds;
     private CharacterController controller;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponentInParent<CharacterController>();
         animator = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
+        sounds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,12 +51,12 @@ public class CharacterAnimationController : MonoBehaviour
     {
         if (soundName == "Jump")
         {
-            audio.PlayOneShot(clips[0]);
+            sounds.PlayOneShot(clips[0]);
         }
 
         if (soundName == "Hit")
         {
-            audio.PlayOneShot(clips[1]);
+            sounds.PlayOneShot(clips[1]);
         }
     }
 }

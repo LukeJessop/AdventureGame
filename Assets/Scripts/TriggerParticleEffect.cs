@@ -5,14 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem), typeof(Collider))]
 public class TriggerParticleEffect : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem particles;
     public int firstEmissionAmount = 10;
     public int secondEmissionAmount = 20;
     public int thirdEmissionAmount = 30;
     public float delayBetweenEmissions = 0.5f;
     void Start()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        particles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -26,12 +26,12 @@ public class TriggerParticleEffect : MonoBehaviour
 
     private IEnumerator EmitParticlesCoroutine()
     {
-        particleSystem.Emit(firstEmissionAmount);
+        particles.Emit(firstEmissionAmount);
         yield return new WaitForSeconds(delayBetweenEmissions);
         
-        particleSystem.Emit(secondEmissionAmount);
+        particles.Emit(secondEmissionAmount);
         yield return new WaitForSeconds(delayBetweenEmissions);
         
-        particleSystem.Emit(thirdEmissionAmount);
+        particles.Emit(thirdEmissionAmount);
     }
 }
