@@ -16,6 +16,8 @@ public class SimpleCharacterController : MonoBehaviour
     public UnityEvent decreaseStamina;
     public UnityEvent increaseStamina;
     public SimpleFloatData staminaData;
+    
+    public UnityEvent jumpEvent;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -52,9 +54,11 @@ public class SimpleCharacterController : MonoBehaviour
         var sprint = new Vector3(moveInput, 0f, 0f) * ((moveSpeed * sprintMultiplier) * Time.deltaTime);
         
         if (Input.GetButtonDown("Jump") && playerIsGrounded)
-        { 
+        {
+            jumpEvent.Invoke();
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             playerIsGrounded = false;
+            
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && staminaData.value > 0 && playerIsGrounded)

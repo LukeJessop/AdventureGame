@@ -8,7 +8,7 @@ public class MovingBrickScript : MonoBehaviour
     public float speed = 3f;          // Movement speed
     public float distance = 5f;       // How far left and right it moves
 
-    public Vector3 startPos;
+    private Vector3 startPos;
 
     void Start()
     {

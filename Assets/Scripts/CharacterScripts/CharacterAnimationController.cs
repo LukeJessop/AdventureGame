@@ -5,10 +5,15 @@ using UnityEngine;
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
+    public AudioClip[] clips;
+    private AudioSource audio;
+    private CharacterController controller;
     // Start is called before the first frame update
     void Start()
     {
+        controller = GetComponentInParent<CharacterController>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,21 +41,22 @@ public class CharacterAnimationController : MonoBehaviour
          }
 
         //Triggers Fall on F key
-        if (Input.GetKeyDown(KeyCode.F))
+        if (controller.velocity.y < -10)
         {
             animator.SetTrigger("Fall");
         }
-        
-        //Triggers DoubleJump on W key
-        if (Input.GetKeyDown(KeyCode.W))
+    }
+
+    public void HandleSounds(string soundName)
+    {
+        if (soundName == "Jump")
         {
-            animator.SetTrigger("DoubleJump");
+            audio.PlayOneShot(clips[0]);
         }
-        
-        //Triggers Hit on H key
-        if (Input.GetKeyDown(KeyCode.H))
+
+        if (soundName == "Hit")
         {
-            animator.SetTrigger("Hit");
+            audio.PlayOneShot(clips[1]);
         }
     }
 }
