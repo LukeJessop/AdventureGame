@@ -135,4 +135,9 @@ public class SimpleCharacterController : MonoBehaviour
         currentPosition.z = 0f;
         thisTransform.position = currentPosition;
     }
+
+    public void PowerupActive(float powerupValue)
+    {
+        sprintMultiplier += powerupValue;
+    }
 }
